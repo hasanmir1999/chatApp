@@ -6,13 +6,13 @@ import toast from 'react-hot-toast';
 export default function Home() {
   const router = useRouter();
   const [roomId, setRoomId] = useState("");
-  const [userName , setUserName] = useState('')
+  const [userName, setUserName] = useState('')
   const enterRoomHandler = () => {
-    if(roomId.trim() == '' || userName.trim() == ''){
+    if (roomId.trim() == '' || userName.trim() == '') {
       toast.error('please fill in all fields.')
       return
     }
-    router.push(`/chatroom/${roomId}`);
+    router.push(`/chatroom/${userName}/${roomId}`);
     setRoomId("");
     setUserName("");
   };

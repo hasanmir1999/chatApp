@@ -1,7 +1,8 @@
-'use client'
+"use client";
 
 import ChatBox from "@/components/chatBox/ChatBox";
 import InputField from "@/components/inputField/InputField";
+import System from "@/components/system/System";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { RiTelegram2Fill } from "react-icons/ri";
@@ -60,12 +61,26 @@ export default function Room() {
   }, [room]);
 
   return (
-    <div className="chat-app h-svh flex justify-center items-center bg-blue-200">
-      <div className="container w-[500px]">
+    <div className="chat-app min-h-svh flex justify-center items-center bg-blue-200 p-5">
+      <div className="container sm:w-[500px] w-[400px]">
         <h1 className="text-gray-800 font-bold text-2xl flex items-center gap-2">
           Chat app <RiTelegram2Fill />
         </h1>
-        <div className={`display p-3 h-[70svh] overflow-y-scroll bg-blue-50 rounded-md my-8`}>
+        <div
+          className={`display h-[70svh] overflow-y-auto bg-blue-50 rounded-md sm:my-8 my-5 scroll`}
+        >
+          <ChatBox key={1} username={"asdasdasd"} content={"dddd"} isMine={1} />
+          <ChatBox
+            key={1}
+            username={"asdasdasd"}
+            content={"dddd"}
+            isMine={1}
+          />{" "}
+          <ChatBox key={1} username={"asdasdasd"} content={"dddd"} isMine={1} />
+          <System content={"sdfsdfsd"} />
+          <ChatBox key={1} username={"asdasdasd"} content={"dddd"} isMine={1} />
+          <System content={"sdfsdfsd"} />
+          <System content={"sdfsdfsd"} />
           {chat.map((msg, i) => (
             <ChatBox
               key={i}
